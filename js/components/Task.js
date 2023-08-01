@@ -3,7 +3,7 @@ export default {
      <li>
         <label class="p-2 flex justify-between items-center">
                {{task.name}}
-                    <input type="checkbox" v-model="task.complete" class="ml-3">
+                    <input type="checkbox" v-model="task.complete" class="ml-3 cursor-pointer">
                 </label>
             </li>
     `,
