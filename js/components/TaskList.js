@@ -1,7 +1,8 @@
 import Task from "./Task.js";
+import TaskCategories from "./TaskCategories.js";
 
 export default {
-    components: {Task},
+    components: {Task , TaskCategories},
     template: `
         <section v-show="filteredTasks.length">
         <h2 class="font-bold mb-2">
@@ -9,17 +10,7 @@ export default {
         <span>{{filteredTasks.length}}</span>
         </h2>
         
-        <div class="flex gap-2"> 
-            <button 
-            class="border rounded px-1 py-px text-xs"
-            :class="{
-                'border-blue-500 text-blue-500' : category === currentCategory
-            }" 
-            v-for="category in categories" 
-            @click="currentCategory = category">
-                {{category}}
-            </button>
-        </div>
+        <task-categories :initial-categories="tasks.map(task => task.category)" @change="currentCategory=$event" :current-category="currentCategory"></task-categories>
         
         <ul class="border border-slate-600 divide-y divide-gray-600 mt-6">
             <task  v-for="task in filteredTasks" :key="task.id" :task="task"></task>
@@ -37,13 +28,13 @@ export default {
     },
     computed: {
         filteredTasks() {
-            if(this.currentCategory === 'all'){
+            if (this.currentCategory === 'all') {
                 return this.tasks;
             }
             return this.tasks.filter(task => task.category === this.currentCategory);
         },
         categories() {
-            return ['all' , ...new Set(this.tasks.map(task => task.category))];
+            return ['all', ...new Set(this.tasks.map(task => task.category))];
         }
     }
 }
