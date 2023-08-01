@@ -1,10 +1,11 @@
 import Task from "./Task.js";
 import TaskCategories from "./TaskCategories.js";
+import Panel from "./Panel.js";
 
 export default {
-    components: {Task , TaskCategories},
+    components: {Task , TaskCategories , Panel},
     template: `
-        <section v-show="filteredTasks.length" class="w-68">
+        <Panel v-show="filteredTasks.length" class="w-70">
         <div class="flex justify-between items-start">
             <h2 class="font-bold mb-2">
             {{title}}
@@ -24,7 +25,7 @@ export default {
         </ul>
         
         <slot></slot>
-        </section>
+        </Panel>
     `,
     data() {
         return {
