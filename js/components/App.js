@@ -1,7 +1,7 @@
-import TaskButton from "./TaskButton.js";
-
+import Tasks from "./Tasks.js";
 export default {
-    components: {
-        'task-button': TaskButton
-    }
+    components: {Tasks},
+    template:`
+    <tasks></tasks>
+    `
 }
