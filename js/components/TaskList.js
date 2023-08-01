@@ -10,7 +10,10 @@ export default {
         <span>{{filteredTasks.length}}</span>
         </h2>
         
-        <task-categories :initial-categories="tasks.map(task => task.category)" @change="currentCategory=$event" :current-category="currentCategory"></task-categories>
+        <task-categories 
+        v-model:currentCategory="currentCategory"
+        :initial-categories="tasks.map(task => task.category)" 
+        ></task-categories>
         
         <ul class="border border-slate-600 divide-y divide-gray-600 mt-6">
             <task  v-for="task in filteredTasks" :key="task.id" :task="task"></task>
