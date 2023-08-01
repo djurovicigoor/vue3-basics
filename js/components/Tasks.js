@@ -14,9 +14,9 @@ export default {
     data() {
         return {
             tasks: [
-                {id: 1, name: 'Finish tutorial', complete: true},
-                {id: 2, name: 'Make coffee', complete: false},
-                {id: 3, name: 'Read server logs', complete: false},
+                {id: 1, name: 'Finish tutorial', complete: true, category: 'study'},
+                {id: 2, name: 'Make coffee', complete: false, category: 'break'},
+                {id: 3, name: 'Read server logs', complete: false, category: 'tech'},
             ],
             newTask: ''
         }
