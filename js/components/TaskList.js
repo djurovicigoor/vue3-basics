@@ -4,11 +4,15 @@ import TaskCategories from "./TaskCategories.js";
 export default {
     components: {Task , TaskCategories},
     template: `
-        <section v-show="filteredTasks.length">
-        <h2 class="font-bold mb-2">
-        {{title}}
-        <span>{{filteredTasks.length}}</span>
-        </h2>
+        <section v-show="filteredTasks.length" class="w-68">
+        <div class="flex justify-between items-start">
+            <h2 class="font-bold mb-2">
+            {{title}}
+            <span>({{filteredTasks.length}})</span>
+            </h2>
+            
+            <button v-show="canToggle" @click="$emit('toggle')">&times;</button>
+        </div>
         
         <task-categories 
         v-model:currentCategory="currentCategory"
@@ -18,6 +22,8 @@ export default {
         <ul class="border border-slate-600 divide-y divide-gray-600 mt-6">
             <task  v-for="task in filteredTasks" :key="task.id" :task="task"></task>
         </ul>
+        
+        <slot></slot>
         </section>
     `,
     data() {
@@ -27,7 +33,10 @@ export default {
     },
     props: {
         tasks: Array,
-        title: String
+        title: String,
+        canToggle: {
+            type: Boolean, default: false
+        }
     },
     computed: {
         filteredTasks() {

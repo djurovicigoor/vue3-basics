@@ -4,17 +4,20 @@ import TaskCreate from "./TaskCreate.js";
 export default {
     components: {TaskList, TaskCreate},
     template: `
-        <section class="space-y-6">
-            <task-list :tasks="filters.inProgress" title="To Do"></task-list>
-            <task-list :tasks="filters.completed" title="Completed"></task-list>
-            
-            <task-create @add="add($event)"></task-create>           
+        <section  class="flex gap-6">
+            <task-list :tasks="filters.inProgress" title="To Do">
+            <task-create @add="add($event)"></task-create> 
+            </task-list>
+            <div v-if="showCompleted">
+            <task-list :tasks="filters.completed" title="Completed" can-toggle @toggle="showCompleted = !showCompleted"></task-list>
+            </div>
         </section>
     `,
     data() {
         return {
             tasks: [],
-            newTask: ''
+            newTask: '',
+            showCompleted: true
         }
     },
     created() {
