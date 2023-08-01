@@ -4,29 +4,43 @@
     <meta charset="UTF-8">
     <title>Vue 3 basics</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .text-blue {
+            color: blue;
+        }
+
+        .text-yellow {
+            color: yellow;
+        }
+    </style>
 </head>
 <body>
 
 <div id="app">
-    <p>
-        <input v-model="greeting"> </input>
-    </p>
-    <p>
-    {{greeting}}({{greeting.length}})
-</p>
+    <button :class="active ? 'text-blue' : 'text-yellow'" @click="changeClass()">Click me</button>
 </div>
 
 <script>
     Vue.createApp({
         data() {
             return {
-                greeting: 'Hello World'
+                btnClasses: 'text-blue',
+                active: false
             }
-        }  ,
-        mounted(){
-            setTimeout(()=>{
-                this.greeting = 'Changed';
-            }, 3000)                            ;
+        },
+        methods: {
+            changeClass() {
+               this.active = ! this.active;
+            }
         }
     }).mount('#app');
 </script>
