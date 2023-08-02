@@ -1,18 +1,11 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-import { ref } from 'vue'
+import { useFlash } from '@/composables/useFlash'
 
-let message = ref('Hello World')
+let { flash } = useFlash()
 </script>
 
 <template>
   <main>
-    <TheWelcome />
-    <p>
-      {{ message }}
-    </p>
-    <p>
-      <input type="text" v-model="message" />
-    </p>
+    <button @click="flash('Hello from the Home View')">Click me</button>
   </main>
 </template>
