@@ -1,11 +1,11 @@
 <script setup>
 import Modal from '@/components/Modal.vue'
-import {currency} from "@/stores/currencyStore";
+import {counter} from "@/stores/counterStore";
 </script>
 
 <template>
   <div>
-      <h1>{{currency.name}}</h1>
+      <h1>{{counter.count}}</h1>
     <Modal />
   </div>
 </template>
