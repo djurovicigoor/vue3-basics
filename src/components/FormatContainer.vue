@@ -1,21 +1,17 @@
 <script setup>
-import {inject} from "vue";
+import {currency} from "@/stores/currencyStore";
 
-defineProps({
-    dateFormat: String
-})
+function update() {
+    currency.name = 'Euro';
+}
 
-let {name, changeName} = inject('name');
 
-setTimeout(()=>{
-    name.value = 'Jane Doe';
-}, 3000)
+// let currency = inject('currency');
 </script>
 
 <template>
-    <p>{{name}}</p>
-    <p style="background: red"> {{dateFormat}}</p>
-    <button @click="changeName">Click me</button>
+    <p style="background: red"> {{currency.name}}</p>
+    <button @click="update">Click me</button>
 </template>
 
 <style scoped>

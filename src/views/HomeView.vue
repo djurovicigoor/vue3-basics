@@ -1,11 +1,11 @@
 <script setup>
-import Modal from "@/components/Modal.vue";
-
-let dateFormat = 'MM/DD/YYYY';
+import Modal from '@/components/Modal.vue'
+import {currency} from "@/stores/currencyStore";
 </script>
 
 <template>
-    <div>
-         <Modal :date-format="dateFormat"/>
-    </div>
+  <div>
+      <h1>{{currency.name}}</h1>
+    <Modal />
+  </div>
 </template>
