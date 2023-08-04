@@ -1,11 +1,17 @@
 <script setup>
-import { useFlash } from '@/composables/useFlash'
+import { useStorage } from '@/composables/useStorage'
 
-let { flash } = useFlash()
+let car = useStorage('car', 'Jaguar')
+let age = useStorage('age', 28)
+
 </script>
 
 <template>
   <main>
-    <button @click="flash('Hello from the Home View')">Click me</button>
+    <p>What is your favorite car? <input type="text" v-model="car" /></p>
+    <p>{{ car }}</p>
+      <br>
+    <p>How old are you? <input type="text" v-model="age" /></p>
+    <p>{{ age }}</p>
   </main>
 </template>
