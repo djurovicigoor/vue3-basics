@@ -1,6 +1,8 @@
 <script setup>
 import Modal from '@/components/Modal.vue'
-import {counter} from "@/stores/counterStore";
+import {useCounterStore} from "@/stores/counterStore";
+
+let counter = useCounterStore();
 </script>
 
 <template>
