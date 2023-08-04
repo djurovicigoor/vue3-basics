@@ -1,0 +1,31 @@
+{
+  "name" : "Nexoid",
+  "spots" : 9,
+  "members": [
+    {
+      "name": "John Doe",
+      "email": "john@doe.com",
+      "status": "Active"
+    },
+    {
+      "name": "Joe Doe",
+      "email": "Joe@doe.com",
+      "status": "Active"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane@doe.com",
+      "status": "Active"
+    },
+    {
+      "name": "Steven Doe",
+      "email": "steven@doe.com",
+      "status": "Active"
+    },
+    {
+      "name": "Sara Doe",
+      "email": "sara@doe.com",
+      "status": "Active"
+    }
+  ]
+}
